@@ -63,10 +63,25 @@
 
         footer { border-top: 1px solid var(--border-color); padding: 50px 0; margin-top: 80px; text-align: center; }
         
+        /* Hidden audio player */
+        .hidden-audio {
+            position: absolute;
+            width: 0;
+            height: 0;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
         @media (max-width: 768px) { .hero h2 { font-size: 2rem; } nav { display: none; } .about-flex { flex-direction: column; text-align: center; } }
     </style>
 </head>
 <body>
+    <!-- Hidden Audio Element -->
+    <audio id="bg-music" class="hidden-audio" autoplay loop>
+        <source src="https://files.catbox.moe/ohbxno.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
     <canvas id="confetti-canvas"></canvas>
 
     <header>
@@ -172,6 +187,29 @@ jobs:
     </footer>
 
     <script>
+        // Initialize background music
+        const bgMusic = document.getElementById('bg-music');
+        
+        // Attempt to play music on page load (with user interaction requirement handling)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set volume to 30% (adjust this value as needed)
+            bgMusic.volume = 0.3;
+            
+            // Try to play immediately
+            bgMusic.play().catch(function(error) {
+                console.log("Autoplay prevented. Music will play after user interaction.");
+                // Music will play when user interacts with the page
+            });
+        });
+        
+        // Play music when user interacts with the page
+        document.addEventListener('click', function() {
+            if (bgMusic.paused) {
+                bgMusic.play().catch(e => console.log("Playback error:", e));
+            }
+        }, { once: true });
+
+        // Copy code function
         function copyCode() {
             const code = document.getElementById('deployCode').innerText;
             navigator.clipboard.writeText(code).then(() => {
@@ -185,6 +223,7 @@ jobs:
             });
         }
 
+        // Confetti animation
         const canvas = document.getElementById('confetti-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
