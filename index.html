@@ -11,12 +11,14 @@
             --bg-color: #05070a;
             --card-bg: #0d1117;
             --primary-gradient: linear-gradient(135deg, #e026ff, #2694ff);
+            --secondary-gradient: linear-gradient(135deg, #ff7e26, #ffd726);
             --text-color: #ffffff;
             --muted-text: #94a3b8;
             --border-color: rgba(255, 255, 255, 0.1);
             --header-bg: rgba(5, 7, 10, 0.85);
             --accent-purple: #e026ff;
             --accent-blue: #2694ff;
+            --accent-orange: #ff7e26;
             --code-bg: #161b22;
         }
 
@@ -37,11 +39,21 @@
         .hero-banner { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 24px; padding: 40px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); max-width: 800px; margin: 0 auto; }
         .hero h2 { font-size: 3rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px; }
 
-        .btn { padding: 12px 30px; border-radius: 12px; text-decoration: none; font-weight: 600; transition: 0.3s; display: inline-block; border: none; cursor: pointer; margin: 5px; }
+        .btn { padding: 12px 30px; border-radius: 12px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: none; cursor: pointer; margin: 5px; position: relative; overflow: hidden; }
         .btn-primary { background: var(--primary-gradient); color: white; box-shadow: 0 8px 20px rgba(224, 38, 255, 0.3); }
+        .btn-secondary { background: var(--secondary-gradient); color: white; box-shadow: 0 8px 20px rgba(255, 126, 38, 0.3); animation: pulse 2s infinite; }
         .btn-outline { background: transparent; color: white; border: 1px solid var(--border-color); }
         .btn-github { background: #24292e; color: white; border: 1px solid #444; }
-        .btn:hover { transform: translateY(-3px); opacity: 0.9; }
+        .btn:hover { transform: translateY(-3px); opacity: 0.9; box-shadow: 0 12px 25px rgba(224, 38, 255, 0.4); }
+        .btn-secondary:hover { box-shadow: 0 12px 25px rgba(255, 126, 38, 0.4); }
+        .btn::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transition: 0.5s; }
+        .btn:hover::after { left: 100%; }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 126, 38, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 126, 38, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 126, 38, 0); }
+        }
 
         .section-title { text-align: center; margin-bottom: 40px; padding-top: 80px; }
         .section-title h2 { font-size: 2.5rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -63,6 +75,8 @@
 
         footer { border-top: 1px solid var(--border-color); padding: 50px 0; margin-top: 80px; text-align: center; }
         
+        .button-group { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+        
         /* Hidden audio player */
         .hidden-audio {
             position: absolute;
@@ -72,7 +86,13 @@
             pointer-events: none;
         }
         
-        @media (max-width: 768px) { .hero h2 { font-size: 2rem; } nav { display: none; } .about-flex { flex-direction: column; text-align: center; } }
+        @media (max-width: 768px) { 
+            .hero h2 { font-size: 2rem; } 
+            nav { display: none; } 
+            .about-flex { flex-direction: column; text-align: center; } 
+            .button-group { flex-direction: column; align-items: center; }
+            .btn { width: 100%; max-width: 300px; }
+        }
     </style>
 </head>
 <body>
@@ -95,7 +115,7 @@
                     <li><a href="#about">Developer</a></li>
                 </ul>
             </nav>
-            <a href="https://web-pair-l7qf.onrender.com/" target="_blank" class="btn btn-primary" style="padding: 8px 15px; font-size: 0.8rem;">Get Pairing Code</a>
+            <a href="https://web-pair-l7qf.onrender.com/" target="_blank" class="btn btn-primary" style="padding: 8px 15px; font-size: 0.8rem;">Get Main Bot Pairing Code</a>
         </div>
     </header>
 
@@ -105,10 +125,20 @@
                 <span style="color: var(--accent-blue); font-weight: bold; letter-spacing: 2px;">OFFICIAL REPOSITORY</span>
                 <h2>DTZ NOVA XMD</h2>
                 <p style="color: var(--muted-text); margin-bottom: 30px;">The most advanced open-source WhatsApp bot. High speed, secure, and packed with 100+ commands.</p>
-                <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
-                    <a href="https://github.com/alpha-x-team-ofc/DTZ_NOVA_XMD_FULL" target="_blank" class="btn btn-github"><i class="fab fa-github"></i> Bot link</a>
-                    <a href="https://web-pair-l7qf.onrender.com/" target="_blank" class="btn btn-primary"><i class="fas fa-link"></i> Get Pairing Code</a>
-                    <a href="#deploy" class="btn btn-outline">Setup Guide</a>
+                
+                <div class="button-group">
+                    <a href="https://github.com/alpha-x-team-ofc/DTZ_NOVA_XMD_FULL" target="_blank" class="btn btn-github">
+                        <i class="fab fa-github"></i> GitHub Repository
+                    </a>
+                    <a href="https://web-pair-l7qf.onrender.com/" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-link"></i> Get Main Bot Pairing Code
+                    </a>
+                    <a href="https://dtz-nova-x-md.onrender.com/" target="_blank" class="btn btn-secondary">
+                        <i class="fas fa-robot"></i> Connect Mini Bot
+                    </a>
+                    <a href="#deploy" class="btn btn-outline">
+                        <i class="fas fa-book"></i> Setup Guide
+                    </a>
                 </div>
             </div>
         </div>
@@ -175,7 +205,14 @@ jobs:
                         <p style="font-size: 0.8rem; color: var(--muted-text);">DTZ TEAM/DTZ_NOVA_XMD_FULL</p>
                     </div>
                 </div>
-                <a href="https://github.com/alpha-x-team-ofc/DTZ_NOVA_XMD_FULL" target="_blank" class="btn btn-primary">Star on GitHub</a>
+                <div class="button-group">
+                    <a href="https://github.com/alpha-x-team-ofc/DTZ_NOVA_XMD_FULL" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-star"></i> Star on GitHub
+                    </a>
+                    <a href="https://dtz-nova-x-md.onrender.com/" target="_blank" class="btn btn-secondary">
+                        <i class="fas fa-bolt"></i> Connect Mini Bot
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -183,6 +220,11 @@ jobs:
     <footer>
         <div class="container">
             <p>&copy; 2025 DTZ NOVA XMD. Developed by Dulina & DTZ Team.</p>
+            <p style="color: var(--muted-text); font-size: 0.9rem; margin-top: 10px;">
+                <a href="https://dtz-nova-x-md.onrender.com/" target="_blank" style="color: var(--accent-orange); text-decoration: none;">
+                    <i class="fas fa-external-link-alt"></i> Try our Mini Bot
+                </a>
+            </p>
         </div>
     </footer>
 
@@ -190,15 +232,11 @@ jobs:
         // Initialize background music
         const bgMusic = document.getElementById('bg-music');
         
-        // Attempt to play music on page load (with user interaction requirement handling)
+        // Attempt to play music on page load
         document.addEventListener('DOMContentLoaded', function() {
-            // Set volume to 30% (adjust this value as needed)
             bgMusic.volume = 0.3;
-            
-            // Try to play immediately
             bgMusic.play().catch(function(error) {
                 console.log("Autoplay prevented. Music will play after user interaction.");
-                // Music will play when user interacts with the page
             });
         });
         
@@ -239,7 +277,7 @@ jobs:
                 this.size = Math.random() * 3 + 1;
                 this.speedY = Math.random() * 0.5 + 0.2;
                 this.speedX = Math.random() * 0.2 - 0.1;
-                const colors = ['#e026ff', '#2694ff', '#ffffff'];
+                const colors = ['#e026ff', '#2694ff', '#ff7e26', '#ffffff'];
                 this.color = colors[Math.floor(Math.random() * colors.length)];
             }
             update() { this.y += this.speedY; this.x += this.speedX; if (this.y > canvas.height) this.reset(); }
