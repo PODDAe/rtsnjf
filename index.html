@@ -1,1594 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DTZ - Dtz Nova Xmd Mini</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#0a0a1a;
-  --card:rgba(0,10,30,0.85);
-  --text:#ffffff;
-  --sub:#ccddff;
-  --accent:#0066ff;
-  --secondary:#00ccff;
-  --cyber-glow:0 0 20px #0066ff, 0 0 40px #0066ff, 0 0 60px #0066ff;
-  --grid-color:rgba(0,102,255,0.1);
-  --theme-name:'cyber-blue';
-  --theme-icon:'🕶️';
-}
-
-/* Christmas Theme - Blue Version */
-.theme-christmas{
-  --bg:#000a1a;
-  --card:rgba(0,20,40,0.85);
-  --text:#ffffff;
-  --sub:#ccffff;
-  --accent:#00aaff;
-  --secondary:#00ffcc;
-  --cyber-glow:0 0 20px #00aaff, 0 0 40px #00ffcc, 0 0 30px #ffffff;
-  --grid-color:rgba(0,170,255,0.15);
-  --theme-name:'blue-christmas';
-  --theme-icon:'🎄';
-}
-
-/* New Year Theme - Blue Version */
-.theme-newyear{
-  --bg:#000033;
-  --card:rgba(0,20,60,0.85);
-  --text:#ffffff;
-  --sub:#ffffcc;
-  --accent:#0066ff;
-  --secondary:#00ccff;
-  --cyber-glow:0 0 20px #0066ff, 0 0 40px #00ccff, 0 0 30px #ffffff;
-  --grid-color:rgba(0,102,255,0.15);
-  --theme-name:'blue-new-year';
-  --theme-icon:'🎆';
-}
-
-/* Valentine Theme - Blue Version */
-.theme-valentine{
-  --bg:#0a0033;
-  --card:rgba(20,0,60,0.85);
-  --text:#ffffff;
-  --sub:#ffddff;
-  --accent:#cc66ff;
-  --secondary:#ff66cc;
-  --cyber-glow:0 0 20px #cc66ff, 0 0 40px #ff66cc, 0 0 30px #ffddee;
-  --grid-color:rgba(204,102,255,0.15);
-  --theme-name:'blue-valentine';
-  --theme-icon:'💝';
-}
-
-/* Halloween Theme - Blue Version */
-.theme-halloween{
-  --bg:#0a0033;
-  --card:rgba(20,10,40,0.85);
-  --text:#ffffff;
-  --sub:#ffcc99;
-  --accent:#ff9900;
-  --secondary:#9966ff;
-  --cyber-glow:0 0 20px #ff9900, 0 0 40px #9966ff, 0 0 30px #ffcc00;
-  --grid-color:rgba(255,153,0,0.15);
-  --theme-name:'blue-halloween';
-  --theme-icon:'🎃';
-}
-
-/* Spring Theme - Blue Version */
-.theme-spring{
-  --bg:#001a33;
-  --card:rgba(0,30,40,0.85);
-  --text:#ffffff;
-  --sub:#ccffcc;
-  --accent:#00cc99;
-  --secondary:#00ccff;
-  --cyber-glow:0 0 20px #00cc99, 0 0 40px #00ccff, 0 0 30px #ffffff;
-  --grid-color:rgba(0,204,153,0.15);
-  --theme-name:'blue-spring';
-  --theme-icon:'🌸';
-}
-
-/* Summer Theme - Blue Version */
-.theme-summer{
-  --bg:#003366;
-  --card:rgba(0,40,60,0.85);
-  --text:#ffffff;
-  --sub:#ccffff;
-  --accent:#00ccff;
-  --secondary:#ff9900;
-  --cyber-glow:0 0 20px #00ccff, 0 0 40px #ff9900, 0 0 30px #ffffcc;
-  --grid-color:rgba(0,204,255,0.15);
-  --theme-name:'blue-summer';
-  --theme-icon:'☀️';
-}
-
-/* Easter Theme - Blue Version */
-.theme-easter{
-  --bg:#330066;
-  --card:rgba(30,0,60,0.85);
-  --text:#ffffff;
-  --sub:#ffccff;
-  --accent:#cc66ff;
-  --secondary:#66ccff;
-  --cyber-glow:0 0 20px #cc66ff, 0 0 40px #66ccff, 0 0 30px #ffffff;
-  --grid-color:rgba(204,102,255,0.15);
-  --theme-name:'blue-easter';
-  --theme-icon:'🐰';
-}
-
-/* Diwali Theme - Blue Version */
-.theme-diwali{
-  --bg:#330033;
-  --card:rgba(30,20,40,0.85);
-  --text:#ffffff;
-  --sub:#ffffcc;
-  --accent:#ffcc00;
-  --secondary:#00ccff;
-  --cyber-glow:0 0 20px #ffcc00, 0 0 40px #00ccff, 0 0 30px #ffffcc;
-  --grid-color:rgba(255,204,0,0.2);
-  --theme-name:'blue-diwali';
-  --theme-icon:'🪔';
-}
-
-/* Light Mode - Blue Version */
-body.light{
-  --bg:#f0f8ff;
-  --card:#e6f7ff;
-  --text:#003366;
-  --sub:#0066cc;
-  --accent:#0066ff;
-  --cyber-glow:0 0 10px #0066ff, 0 0 20px #0066ff;
-  --grid-color:rgba(0,102,255,0.05);
-}
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-body{
-  font-family:'Rajdhani', 'Segoe UI', sans-serif;
-  color:var(--text);
-  transition:.5s;
-  overflow-x:hidden;
-  position:relative;
-  min-height:100vh;
-  background: var(--bg);
-}
-
-/* Theme Indicator */
-.theme-indicator {
-  position: fixed;
-  top: 15px;
-  right: 70px;
-  z-index: 1100;
-  background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(10px);
-  padding: 8px 15px;
-  border-radius: 20px;
-  border: 1px solid var(--accent);
-  box-shadow: 0 0 15px var(--accent);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.9rem;
-  color: var(--text);
-  opacity: 0.9;
-  animation: themePulse 3s infinite;
-  font-family: 'Orbitron', sans-serif;
-}
-
-@keyframes themePulse {
-  0%, 100% { opacity: 0.8; }
-  50% { opacity: 1; }
-}
-
-/* CYBER BACKGROUND - Blue Version */
-.cyber-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-  background: 
-    /* Matrix Grid */
-    linear-gradient(transparent 95%, var(--grid-color) 100%),
-    linear-gradient(90deg, transparent 95%, var(--grid-color) 100%),
-    /* Gradient overlays */
-    radial-gradient(circle at 20% 30%, rgba(var(--accent-rgb),0.05) 0%, transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(var(--secondary-rgb),0.05) 0%, transparent 40%),
-    /* Main Background */
-    linear-gradient(45deg, #000033 0%, #001133 30%, #002244 70%, #000033 100%);
-  background-size: 50px 50px, 50px 50px, 100% 100%, 100% 100%, 100% 100%;
-  animation: gridMove 20s linear infinite;
-}
-
-/* Animated Grid Lines */
-.grid-lines {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.3;
-}
-
-.grid-line {
-  position: absolute;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  animation: gridLine 15s linear infinite;
-}
-
-.grid-line.horizontal {
-  width: 100%;
-  height: 1px;
-  left: 0;
-}
-
-.grid-line.vertical {
-  height: 100%;
-  width: 1px;
-  top: 0;
-}
-
-/* Seasonal decorations */
-.seasonal-decoration {
-  position: fixed;
-  z-index: -1;
-  pointer-events: none;
-  animation: float 20s infinite ease-in-out;
-}
-
-.christmas-decoration {
-  font-size: 24px;
-  opacity: 0.7;
-  text-shadow: 0 0 10px var(--accent);
-}
-
-.newyear-decoration {
-  font-size: 20px;
-  opacity: 0.6;
-  animation: sparkle 2s infinite;
-}
-
-@keyframes sparkle {
-  0%, 100% { opacity: 0.6; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.2); }
-}
-
-/* Hexagonal Pattern */
-.hex-pattern {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  opacity: 0.1;
-  background-image: 
-    radial-gradient(circle at 25% 25%, var(--accent) 2px, transparent 3px),
-    radial-gradient(circle at 75% 75%, var(--secondary) 2px, transparent 3px);
-  background-size: 100px 100px;
-  animation: hexFloat 40s infinite linear;
-}
-
-/* Data Stream Animation */
-.data-stream {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  overflow: hidden;
-  opacity: 0.1;
-}
-
-.stream-column {
-  position: absolute;
-  width: 2px;
-  height: 200%;
-  background: linear-gradient(to bottom, transparent, var(--accent), transparent);
-  animation: dataStream 5s linear infinite;
-  filter: blur(1px);
-}
-
-/* Blue particles */
-.particles{
-  position:fixed;
-  top:0;left:0;
-  width:100%;height:100%;
-  pointer-events:none;
-  z-index:-1;
-}
-.particle{
-  position:absolute;
-  background:var(--accent);
-  border-radius:50%;
-  opacity:0.3;
-  box-shadow:0 0 12px var(--accent);
-  animation: snowFall linear infinite;
-}
-
-/* Animations */
-@keyframes gridMove {
-  0% {
-    background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
-  }
-  100% {
-    background-position: 50px 50px, 50px 50px, 100% 100%, 100% 100%, 100% 100%;
-  }
-}
-
-@keyframes gridLine {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-@keyframes hexFloat {
-  0%, 100% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(50px, 25px);
-  }
-  50% {
-    transform: translate(0, 50px);
-  }
-  75% {
-    transform: translate(-50px, 25px);
-  }
-}
-
-@keyframes dataStream {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(100%);
-  }
-}
-
-@keyframes snowFall{
-  0%{
-    transform:translateY(-100px) translateX(0) scale(0.5);
-    opacity:0;
-  }
-  10%{
-    opacity:0.8;
-  }
-  90%{
-    opacity:0.8;
-  }
-  100%{
-    transform:translateY(100vh) translateX(var(--drift)) scale(1);
-    opacity:0;
-  }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  25% { transform: translateY(-20px) rotate(5deg); }
-  50% { transform: translateY(0) rotate(0deg); }
-  75% { transform: translateY(-10px) rotate(-5deg); }
-}
-
-/* Cyber Text Effects */
-.cyber-text {
-  position: relative;
-  text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
-  letter-spacing: 2px;
-}
-
-.cyber-border {
-  position: relative;
-  border: 2px solid var(--accent);
-  box-shadow: var(--cyber-glow);
-  background: rgba(0, 10, 30, 0.7) !important;
-  backdrop-filter: blur(10px);
-}
-
-.cyber-border::before {
-  content: '';
-  position: absolute;
-  top: -4px;
-  left: -4px;
-  right: -4px;
-  bottom: -4px;
-  border: 1px solid rgba(255,255,255,0.1);
-  pointer-events: none;
-  z-index: -1;
-}
-
-/* Sidebar & Toggle - Blue Theme */
-.menu-btn{
-  position:fixed;
-  top:15px;left:15px;
-  width:45px;height:45px;
-  border:none;
-  border-radius:5px;
-  background:rgba(var(--accent-rgb),.15);
-  color:var(--accent);
-  font-size:1.3rem;
-  z-index:1100;
-  cursor:pointer;
-  transition:.3s;
-  box-shadow:0 0 15px var(--accent);
-  backdrop-filter: blur(5px);
-}
-.menu-btn:hover{
-  background:rgba(var(--accent-rgb),.3);
-  box-shadow:0 0 25px var(--accent);
-}
-.sidebar{
-  position:fixed;
-  top:0;left:-260px;
-  width:250px;height:100%;
-  background:rgba(0,10,30,0.95);
-  backdrop-filter:blur(12px);
-  border-right:2px solid var(--accent);
-  padding:1.5rem;
-  transition:.4s ease;
-  z-index:1050;
-  box-shadow:5px 0 30px var(--accent);
-}
-.sidebar.active{left:0}
-.sidebar .logo{
-  text-align:center;
-  font-size:1.8rem;
-  font-weight:900;
-  color:var(--accent);
-  margin-bottom:2rem;
-  text-shadow:0 0 10px var(--accent);
-  font-family:'Orbitron', sans-serif;
-  letter-spacing: 3px;
-}
-.sidebar ul{list-style:none}
-.sidebar li{margin:1rem 0}
-.sidebar a{
-  display:flex;
-  align-items:center;
-  gap:.8rem;
-  padding:.8rem 1rem;
-  color:var(--text);
-  text-decoration:none;
-  border-radius:5px;
-  transition:.3s;
-  border:1px solid transparent;
-  font-family:'Rajdhani', sans-serif;
-  font-weight:600;
-}
-.sidebar a:hover{
-  background:rgba(var(--accent-rgb),.15);
-  color:var(--accent);
-  border:1px solid var(--accent);
-  box-shadow:0 0 15px var(--accent);
-}
-
-/* Theme Toggle Button - Blue Theme */
-.theme-toggle-btn {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  width: 45px;
-  height: 45px;
-  border: none;
-  border-radius: 5px;
-  background: rgba(var(--accent-rgb), 0.15);
-  color: var(--accent);
-  font-size: 1.3rem;
-  z-index: 1100;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 15px var(--accent);
-  backdrop-filter: blur(5px);
-}
-
-.theme-toggle-btn:hover {
-  background: rgba(var(--accent-rgb), 0.3);
-  transform: scale(1.05);
-  box-shadow: 0 0 25px var(--accent);
-}
-
-.theme-toggle-btn .sun-icon {
-  display: none;
-}
-
-.theme-toggle-btn .moon-icon {
-  display: block;
-}
-
-body.light .theme-toggle-btn .sun-icon {
-  display: block;
-}
-
-body.light .theme-toggle-btn .moon-icon {
-  display: none;
-}
-
-/* WhatsApp Contact Button - Blue */
-.contact-btn{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  width:60px;height:60px;
-  background:var(--accent);
-  color:#fff;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:1.8rem;
-  box-shadow:0 4px 20px var(--accent), 0 0 30px var(--accent);
-  z-index:1000;
-  transition:.3s;
-  animation:floatBtn 3s infinite ease-in-out;
-  backdrop-filter: blur(5px);
-}
-.contact-btn:hover{
-  transform:scale(1.1);
-  box-shadow:0 6px 30px var(--accent), 0 0 40px var(--accent);
-}
-@keyframes floatBtn{
-  0%,100%{transform:translateY(0) rotate(0deg);}
-  25%{transform:translateY(-10px) rotate(5deg);}
-  50%{transform:translateY(0) rotate(0deg);}
-  75%{transform:translateY(-5px) rotate(-5deg);}
-}
-
-/* Main Content */
-main{
-  padding:2rem 1rem;
-  position:relative;
-  z-index:1;
-}
-
-/* Hero Section - Blue Cyber Style */
-.hero{
-  text-align:center;
-  padding:4rem 1rem 2rem;
-  position:relative;
-}
-.hero h1{
-  font-size:4rem;
-  margin-bottom:1rem;
-  font-family:'Orbitron', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent), 0 0 30px var(--accent);
-  background: linear-gradient(90deg, var(--accent), var(--secondary), var(--accent));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  background-size: 200% auto;
-  animation: textShine 3s ease-in-out infinite alternate;
-}
-@keyframes textShine {
-  0% {
-    background-position: 0% center;
-  }
-  100% {
-    background-position: 100% center;
-  }
-}
-.highlight{
-  color:var(--accent);
-  text-shadow: var(--cyber-glow);
-}
-.hero p{
-  color:var(--sub);
-  margin-top:.7rem;
-  font-size:1.5rem;
-  margin-bottom:1.5rem;
-  letter-spacing: 3px;
-  font-family:'Orbitron', sans-serif;
-  text-transform: uppercase;
-}
-
-/* Pair Bot Button - Blue Cyber */
-.pair-bot-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:1rem;
-  padding:1.2rem 3.5rem;
-  font-size:1.4rem;
-  background:linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 70%, #000), color-mix(in srgb, var(--accent) 40%, #000));
-  color:#fff;
-  font-weight:700;
-  text-decoration:none;
-  border-radius:5px;
-  box-shadow:0 8px 25px var(--accent),
-             0 0 30px var(--accent),
-             inset 0 0 20px rgba(255,255,255,0.1);
-  transition:all 0.4s ease;
-  margin-top:1rem;
-  min-width:280px;
-  position:relative;
-  overflow:hidden;
-  border: 2px solid rgba(255,255,255,0.2);
-  font-family:'Orbitron', sans-serif;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.pair-bot-btn::before{
-  content:'';
-  position:absolute;
-  top:0;
-  left:-100%;
-  width:100%;
-  height:100%;
-  background:linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-  transition:0.5s;
-}
-
-.pair-bot-btn:hover::before{
-  left:100%;
-}
-
-.pair-bot-btn:hover{
-  transform:translateY(-4px) scale(1.08);
-  box-shadow:0 12px 35px var(--accent),
-             0 0 50px var(--accent),
-             inset 0 0 30px rgba(255,255,255,0.2);
-  border-color: rgba(255,255,255,0.4);
-  letter-spacing: 3px;
-}
-
-/* Banner Section - Blue Cyber */
-.banner-section {
-  position: relative;
-  width: 100%;
-  max-width: 100%;
-  margin: 1.5rem 0 3rem 0;
-  padding: 0;
-  overflow: hidden;
-  border: 3px solid var(--accent);
-  border-radius: 5px;
-  box-shadow: 0 0 30px var(--accent),
-              inset 0 0 20px var(--accent);
-  animation: borderPulse 2s infinite ease-in-out;
-}
-
-.banner-container {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.banner-section img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-  border-radius: 2px;
-  transition: transform 0.5s ease;
-  filter: contrast(1.2) saturate(1.3) brightness(0.9);
-}
-
-.banner-section:hover img {
-  transform: scale(1.05);
-}
-
-@keyframes borderPulse {
-  0% {
-    box-shadow: 0 0 20px var(--accent),
-                inset 0 0 20px var(--accent);
-    border-color: var(--accent);
-  }
-  50% {
-    box-shadow: 0 0 40px var(--secondary),
-                inset 0 0 30px var(--secondary);
-    border-color: var(--secondary);
-  }
-  100% {
-    box-shadow: 0 0 20px var(--accent),
-                inset 0 0 20px var(--accent);
-    border-color: var(--accent);
-  }
-}
-
-/* Features Section - Blue Cyber */
-.features-section {
-  padding: 2.5rem 0;
-  text-align: center;
-}
-
-.features-section h2 {
-  font-size: 3rem;
-  margin-bottom: 0.8rem;
-  color: var(--accent);
-  text-shadow: 0 0 15px var(--accent);
-  font-family:'Orbitron', sans-serif;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-}
-
-.features-section > p {
-  color: var(--sub);
-  font-size: 1.3rem;
-  margin-bottom: 2.5rem;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  letter-spacing: 2px;
-  font-family:'Rajdhani', sans-serif;
-  font-weight: 600;
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 0.5rem;
-}
-
-.feature-card {
-  background: rgba(0,20,40,0.8);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--accent);
-  border-radius: 5px;
-  padding: 2rem 1.5rem;
-  text-align: center;
-  transition: all 0.4s ease;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-}
-
-.feature-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: linear-gradient(135deg, var(--accent), transparent 50%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-}
-
-.feature-card:hover::before {
-  opacity: 0.2;
-}
-
-.feature-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 18px 35px var(--accent),
-              inset 0 0 20px var(--accent);
-  border-color: var(--secondary);
-}
-
-.feature-card i {
-  font-size: 3.2rem;
-  color: var(--accent);
-  margin-bottom: 1.2rem;
-  display: block;
-  transition: all 0.4s ease;
-  text-shadow: 0 0 15px var(--accent);
-}
-
-.feature-card:hover i {
-  transform: scale(1.2) rotate(10deg);
-  color: var(--secondary);
-  text-shadow: 0 0 25px var(--secondary);
-}
-
-.feature-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.8rem;
-  color: var(--text);
-  transition: color 0.4s ease;
-  font-family:'Orbitron', sans-serif;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.feature-card:hover h3 {
-  color: var(--secondary);
-  text-shadow: 0 0 10px var(--secondary);
-}
-
-.feature-card p {
-  color: var(--sub);
-  line-height: 1.6;
-  font-size: 1rem;
-  font-family:'Rajdhani', sans-serif;
-}
-
-/* Team Section - Blue Cards */
-.owners-section{
-  text-align:center;
-  margin:2rem 0 3rem 0;
-}
-.owners-section h2{
-  margin-bottom:1rem;
-  font-size:2.8rem;
-  color: var(--accent);
-  text-shadow: 0 0 15px var(--accent);
-  font-family:'Orbitron', sans-serif;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-}
-.team-grid{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  gap: 1.2rem;
-  padding: 0.5rem 0;
-}
-.owner-card{
-  flex: 0 0 auto;
-  background:rgba(0,20,40,0.8);
-  padding:1.5rem;
-  border-radius:5px;
-  border:1px solid var(--accent);
-  text-align:center;
-  width:200px;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
-}
-.owner-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 25px var(--accent);
-  border-color: var(--secondary);
-}
-.owner-card img{
-  width:120px;height:120px;
-  border-radius:5px;
-  border:2px solid var(--accent);
-  object-fit:cover;
-  margin-bottom:.8rem;
-  filter: contrast(1.1) saturate(1.2);
-  box-shadow: 0 0 20px var(--accent);
-}
-.owner-card p{
-  color:var(--sub);
-  margin-top:.3rem;
-  font-size:1rem;
-  font-family:'Rajdhani', sans-serif;
-  font-weight: 600;
-}
-.owner-card h3 {
-  color: var(--accent);
-  text-shadow: 0 0 8px var(--accent);
-  font-family:'Orbitron', sans-serif;
-  letter-spacing: 2px;
-  font-size: 1.2rem;
-}
-
-/* Contact Section - Blue Style */
-.contact-section {
-  text-align: center;
-  margin: 2rem 0 4rem 0;
-  padding: 1.5rem;
-}
-
-.contact-section h2 {
-  font-size: 2.8rem;
-  margin-bottom: 0.5rem;
-  color: var(--accent);
-  font-family:'Orbitron', sans-serif;
-  letter-spacing: 4px;
-  text-shadow: 0 0 15px var(--accent);
-  text-transform: uppercase;
-}
-
-.contact-section .subtitle {
-  color: var(--sub);
-  margin-bottom: 2rem;
-  font-size: 1.2rem;
-  letter-spacing: 2px;
-  font-family:'Rajdhani', sans-serif;
-  font-weight: 600;
-}
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.contact-card {
-  background: rgba(0,20,40,0.8);
-  padding: 1.8rem;
-  border-radius: 5px;
-  border: 1px solid var(--accent);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  backdrop-filter: blur(5px);
-}
-
-.contact-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px var(--accent);
-  border-color: var(--secondary);
-}
-
-.contact-card h3 {
-  color: var(--accent);
-  margin-bottom: 1.2rem;
-  font-size: 1.4rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  font-family:'Orbitron', sans-serif;
-  text-shadow: 0 0 10px var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
-.whatsapp-link, .channel-link, .youtube-link {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  padding: 0.9rem;
-  background: rgba(var(--accent-rgb), 0.1);
-  border-radius: 5px;
-  color: var(--text);
-  text-decoration: none;
-  transition: all 0.3s ease;
-  border: 1px solid transparent;
-  font-family:'Rajdhani', sans-serif;
-  font-weight: 600;
-}
-
-.whatsapp-link {
-  background: rgba(var(--accent-rgb), 0.15);
-}
-
-.whatsapp-link:hover, .channel-link:hover, .youtube-link:hover {
-  background: rgba(var(--accent-rgb), 0.25);
-  transform: translateX(5px);
-  border-color: var(--accent);
-  box-shadow: 0 0 15px var(--accent);
-}
-
-.whatsapp-link i, .channel-link i, .youtube-link i { 
-  color: var(--accent); 
-  text-shadow: 0 0 10px var(--accent); 
-  font-size: 1.2rem;
-}
-
-footer{
-  text-align:center;
-  margin-top:2rem;
-  color:var(--sub);
-  padding-bottom:70px;
-  font-size:1rem;
-  letter-spacing: 2px;
-  font-family:'Orbitron', sans-serif;
-  text-transform: uppercase;
-}
-
-/* Scrollbar Styling - Blue */
-::-webkit-scrollbar {
-  width: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(0,20,40,0.8);
-  box-shadow: inset 0 0 10px var(--accent);
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, var(--accent), var(--secondary));
-  border-radius: 2px;
-  box-shadow: 0 0 10px var(--accent);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, var(--secondary), var(--accent));
-  box-shadow: 0 0 15px var(--secondary);
-}
-
-/* Matrix-like code rain effect */
-.code-rain {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  opacity: 0.1;
-  pointer-events: none;
-}
-
-.rain-column {
-  position: absolute;
-  width: 2px;
-  height: 100px;
-  background: linear-gradient(to bottom, transparent, var(--accent), transparent);
-  animation: rainFall linear infinite;
-  filter: blur(1px);
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DTZ NOVA XMD - Official Bot Repository</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #05070a;
+            --card-bg: #0d1117;
+            --primary-gradient: linear-gradient(135deg, #e026ff, #2694ff);
+            --secondary-gradient: linear-gradient(135deg, #ff7e26, #ffd726);
+            --text-color: #ffffff;
+            --muted-text: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --header-bg: rgba(5, 7, 10, 0.85);
+            --accent-purple: #e026ff;
+            --accent-blue: #2694ff;
+            --accent-orange: #ff7e26;
+            --code-bg: #161b22;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; overflow-x: hidden; }
+        #confetti-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+
+        header { background: var(--header-bg); backdrop-filter: blur(12px); padding: 15px 0; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 1000; }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo i { font-size: 2rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        nav ul { display: flex; list-style: none; gap: 25px; }
+        nav a { color: var(--muted-text); text-decoration: none; font-weight: 500; transition: 0.3s; }
+        nav a:hover { color: var(--accent-purple); }
+
+        .hero { padding: 100px 0; text-align: center; }
+        .hero-banner { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 24px; padding: 40px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); max-width: 800px; margin: 0 auto; }
+        .hero h2 { font-size: 3rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px; }
+
+        .btn { padding: 12px 30px; border-radius: 12px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: none; cursor: pointer; margin: 5px; position: relative; overflow: hidden; }
+        .btn-primary { background: var(--primary-gradient); color: white; box-shadow: 0 8px 20px rgba(224, 38, 255, 0.3); }
+        .btn-secondary { background: var(--secondary-gradient); color: white; box-shadow: 0 8px 20px rgba(255, 126, 38, 0.3); animation: pulse 2s infinite; }
+        .btn-outline { background: transparent; color: white; border: 1px solid var(--border-color); }
+        .btn-github { background: #24292e; color: white; border: 1px solid #444; }
+        .btn:hover { transform: translateY(-3px); opacity: 0.9; box-shadow: 0 12px 25px rgba(224, 38, 255, 0.4); }
+        .btn-secondary:hover { box-shadow: 0 12px 25px rgba(255, 126, 38, 0.4); }
+        .btn::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transition: 0.5s; }
+        .btn:hover::after { left: 100%; }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 126, 38, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 126, 38, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 126, 38, 0); }
+        }
+
+        .section-title { text-align: center; margin-bottom: 40px; padding-top: 80px; }
+        .section-title h2 { font-size: 2.5rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        .deploy-container { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; padding: 30px; margin-top: 30px; }
+        .code-wrapper { position: relative; background: var(--code-bg); border-radius: 12px; padding: 20px; margin: 20px 0; border: 1px solid #30363d; text-align: left; overflow-x: auto; }
+        pre { font-family: 'Courier New', monospace; font-size: 0.85rem; color: #e6edf3; white-space: pre-wrap; }
+        .copy-btn { position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.1); color: white; border: none; padding: 5px 12px; border-radius: 6px; cursor: pointer; font-size: 0.8rem; }
+
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 50px 0; }
+        .card { background: var(--card-bg); border: 1px solid var(--border-color); padding: 25px; border-radius: 15px; transition: 0.3s; }
+        .card:hover { border-color: var(--accent-purple); transform: translateY(-5px); }
+        .card i { font-size: 2rem; color: var(--accent-blue); margin-bottom: 15px; }
+
+        .about-flex { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; background: var(--card-bg); border: 1px solid var(--border-color); padding: 40px; border-radius: 24px; }
+        .dev-img-container { flex: 1; min-width: 300px; text-align: center; }
+        .dev-img-container img { width: 100%; max-width: 350px; border-radius: 20px; border: 3px solid var(--accent-purple); filter: drop-shadow(0 0 15px rgba(224, 38, 255, 0.4)); }
+        .about-text { flex: 1.5; min-width: 300px; }
+
+        footer { border-top: 1px solid var(--border-color); padding: 50px 0; margin-top: 80px; text-align: center; }
+        
+        .button-group { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+        
+        /* Hidden audio player */
+        .hidden-audio {
+            position: absolute;
+            width: 0;
+            height: 0;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        @media (max-width: 768px) { 
+            .hero h2 { font-size: 2rem; } 
+            nav { display: none; } 
+            .about-flex { flex-direction: column; text-align: center; } 
+            .button-group { flex-direction: column; align-items: center; }
+            .btn { width: 100%; max-width: 300px; }
+        }
+    </style>
 </head>
 <body>
-
-<!-- Theme Indicator -->
-<div class="theme-indicator" id="themeIndicator">
-  <span id="themeIcon">🕶️</span>
-  <span id="themeText">Blue Cyber</span>
-</div>
-
-<!-- Cyber Background Elements -->
-<div class="cyber-bg"></div>
-<div class="hex-pattern"></div>
-<div class="data-stream" id="dataStream"></div>
-<div class="grid-lines" id="gridLines"></div>
-<div class="code-rain" id="codeRain"></div>
-<div class="seasonal-decorations" id="seasonalDecorations"></div>
-
-<div class="particles"></div>
-
-<button class="menu-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></button>
-
-<button class="theme-toggle-btn" id="themeToggle">
-  <i class="fas fa-moon moon-icon"></i>
-  <i class="fas fa-sun sun-icon"></i>
-</button>
-
-<div class="sidebar" id="sidebar">
-  <div class="logo">DTZ</div>
-  <ul>
-    <li><a href="#home" onclick="closeSide()"><i class="fa-solid fa-house"></i> Home</a></li>
-    <li><a href="#features" onclick="closeSide()"><i class="fa-solid fa-star"></i> Features</a></li>
-    <li><a href="#owners" onclick="closeSide()"><i class="fa-solid fa-users"></i> Team</a></li>
-    <li><a href="#contact" onclick="closeSide()"><i class="fa-solid fa-address-book"></i> Contact</a></li>
-  </ul>
-</div>
-
-<a href="https://wa.me/94752978237" target="_blank" class="contact-btn" title="Contact WhatsApp">
-  <i class="fa-brands fa-whatsapp"></i>
-</a>
-
-<main>
-
-<section class="hero" id="home">
-  <h1>DTZ<span style="color: var(--text);">_</span>NOVA<span style="color: var(--text);">_</span>XMD</h1>
-  <p class="cyber-text">CYBERNETIC WHATSAPP BOT SYSTEM</p>
-  <a href="https://dtz-nova-x-md.onrender.com/" target="_blank" class="pair-bot-btn">
-    <i class="fa-solid fa-terminal"></i> Conect Mini Bot
-  </a>
-</section>
-
-<section class="banner-section" id="banner">
-  <div class="banner-container">
-    <img src="https://files.catbox.moe/fpyw9m.png" alt="DTZ NOVA XMD Banner">
-  </div>
-</section>
-
-<section class="features-section" id="features">
-  <h2>SYSTEM FEATURES</h2>
-  <p class="cyber-text">Advanced cybernetic capabilities for maximum efficiency</p>
-  
-  <div class="features-grid">
-    <div class="feature-card cyber-border">
-      <i class="fa-solid fa-server"></i>
-      <h3>GROUP MANAGEMENT</h3>
-      <p>Advanced tools for group moderation, administration, and organization.</p>
-    </div>
+    <!-- Hidden Audio Element -->
+    <audio id="bg-music" class="hidden-audio" autoplay loop>
+        <source src="https://files.catbox.moe/ohbxno.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
     
-    <div class="feature-card cyber-border">
-      <i class="fa-solid fa-satellite-dish"></i>
-      <h3>SOCIAL DOWNLOADERS</h3>
-      <p>Download content from Instagram, TikTok, YouTube and other platforms.</p>
-    </div>
-    
-    <div class="feature-card cyber-border">
-      <i class="fa-solid fa-microchip"></i>
-      <h3>CYBER TOOLS</h3>
-      <p>Powerful utilities for encryption, conversion, and data processing.</p>
-    </div>
-    
-    <div class="feature-card cyber-border">
-      <i class="fa-solid fa-gamepad"></i>
-      <h3>ENTERTAINMENT</h3>
-      <p>Games, memes, and interactive entertainment features.</p>
-    </div>
-    
-    <div class="feature-card cyber-border">
-      <i class="fa-solid fa-robot"></i>
-      <h3>AI INTERACTION</h3>
-      <p>Smart responses, chat automation, and intelligent features.</p>
-    </div>
+    <canvas id="confetti-canvas"></canvas>
 
-    <div class="feature-card cyber-border">
-      <i class="fa-solid fa-network-wired"></i>
-      <h3>NETWORK SYSTEM</h3>
-      <p>Advanced networking capabilities and system integrations.</p>
-    </div>
-  </div>
-</section>
+    <header>
+        <div class="container header-content">
+            <div class="logo"><i class="fab fa-whatsapp"></i><h1>NOVA XMD</h1></div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#deploy">Deploy</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#about">Developer</a></li>
+                </ul>
+            </nav>
+            <a href="https://web-pair-l7qf.onrender.com/" target="_blank" class="btn btn-primary" style="padding: 8px 15px; font-size: 0.8rem;">Get Pairing Code</a>
+        </div>
+    </header>
 
-<section class="owners-section" id="owners">
-  <h2>CYBER COMMAND</h2>
-  
-  <div class="team-grid">
-    <div class="owner-card cyber-border">
-      <img src="https://files.catbox.moe/4z7t8v.png" alt="DTZ DULA">
-      <h3>SYSTEM ADMIN</h3>
-      <p>PRIMARY DEVELOPER</p>
-    </div>
-  </div>
-</section>
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-banner">
+                <span style="color: var(--accent-blue); font-weight: bold; letter-spacing: 2px;">OFFICIAL REPOSITORY</span>
+                <h2>DTZ NOVA XMD</h2>
+                <p style="color: var(--muted-text); margin-bottom: 30px;">The most advanced open-source WhatsApp bot. High speed, secure, and packed with 100+ commands.</p>
+                
+                <div class="button-group">
+                    <a href="https://github.com/alpha-x-team-ofc/DTZ_NOVA_XMD_FULL" target="_blank" class="btn btn-github">
+                        <i class="fab fa-github"></i> GitHub Repository
+                    </a>
+                    <a href="https://web-pair-l7qf.onrender.com/" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-link"></i> Get Pairing Code
+                    </a>
+                    <a href="https://dtz-nova-xmd-mini-pair.vercel.app/" target="_blank" class="btn btn-secondary">
+                        <i class="fas fa-robot"></i> Try Mini Bot
+                    </a>
+                    <a href="#deploy" class="btn btn-outline">
+                        <i class="fas fa-book"></i> Setup Guide
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section class="contact-section" id="contact">
-  <h2>CONTACT MATRIX</h2>
-  <p class="subtitle cyber-text">Connect with the DTZ development network</p>
-  
-  <div class="contact-grid">
-    <div class="contact-card cyber-border">
-      <h3><i class="fa-solid fa-terminal"></i> DIRECT LINK</h3>
-      <div class="contact-info">
-        <a href="https://wa.me/94752978237" target="_blank" class="whatsapp-link">
-          <i class="fa-brands fa-whatsapp"></i>
-          <div class="contact-details">
-            <div style="font-weight: 600; color: var(--accent);">SYSTEM ADMIN</div>
-            <div style="color: var(--sub); font-size: 0.9rem;">Lead Developer Interface</div>
-          </div>
-        </a>
-      </div>
-    </div>
-    
-    <div class="contact-card cyber-border">
-      <h3><i class="fa-solid fa-broadcast-tower"></i> NETWORK CHANNELS</h3>
-      <div class="contact-info">
-        <a href="https://whatsapp.com/channel/0029Vb6mfVdEAKWH5Sgs9y2L" target="_blank" class="channel-link">
-          <i class="fa-brands fa-whatsapp"></i>
-          <div style="flex: 1;">
-            <div style="font-weight: 600; color: var(--accent);">WHATSAPP CHANNEL</div>
-            <div style="color: var(--sub); font-size: 0.9rem;">System Updates & Announcements</div>
-          </div>
-        </a>
+    <section class="container" id="deploy">
+        <div class="section-title">
+            <h2>Easy Deployment</h2>
+            <p>Fork the <a href="https://github.com/alpha-x-team-ofc/DTZ_NOVA_XMD_FULL" style="color: var(--accent-blue);">Repo</a> and use GitHub Actions</p>
+        </div>
+        <div class="deploy-container">
+            <p style="color: var(--muted-text); font-size: 0.9rem; margin-bottom: 10px;">Paste this into your <code>.github/workflows/node.js.yml</code> file:</p>
+            <div class="code-wrapper">
+                <button class="copy-btn" onclick="copyCode()">Copy Code</button>
+<pre id="deployCode">
+name: Node.js CI/CD Workflow
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 20.x
+    - run: npm install
+    - run: npm start</pre>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="features">
+        <div class="section-title">
+            <h2>Advanced Features</h2>
+        </div>
+        <div class="features-grid">
+            <div class="card"><i class="fas fa-code-branch"></i><h3>Latest Baileys</h3><p>Built on the most stable WhatsApp MD library.</p></div>
+            <div class="card"><i class="fas fa-shield-alt"></i><h3>Anti-Ban</h3><p>Enhanced security to protect your account.</p></div>
+            <div class="card"><i class="fas fa-cloud-download-alt"></i><h3>Mass Downloader</h3><p>Supports YT, TikTok, FB, and Instagram.</p></div>
+            <div class="card"><i class="fas fa-magic"></i><h3>Sticker Tools</h3><p>Advanced image and video sticker conversion.</p></div>
+        </div>
+    </section>
+
+    <section class="container" id="about">
+        <div class="section-title">
+            <h2>About Developer</h2>
+        </div>
+        <div class="about-flex">
+            <div class="dev-img-container">
+                <img src="https://i.ibb.co/B285mfrR/developer.jpg" alt="Dulina Developer">
+            </div>
+            <div class="about-text">
+                <h2 style="color: var(--accent-purple); margin-bottom: 10px;">Dulina (DTZ Team)</h2>
+                <p>Lead developer and founder of the <strong>DTZ TEAM</strong>. Specialized in Node.js and WhatsApp automation systems.</p>
+                <div style="margin: 20px 0;">
+                    <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <i class="fab fa-github" style="color: var(--accent-blue);"></i> <strong>Official Repo:</strong>
+                        <p style="font-size: 0.8rem; color: var(--muted-text);">DTZ TEAM/DTZ_NOVA_XMD_FULL</p>
+                    </div>
+                </div>
+                <div class="button-group">
+                    <a href="https://github.com/alpha-x-team-ofc/DTZ_NOVA_XMD_FULL" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-star"></i> Star on GitHub
+                    </a>
+                    <a href="https://dtz-nova-xmd-mini-pair.vercel.app/" target="_blank" class="btn btn-secondary">
+                        <i class="fas fa-bolt"></i> Try Mini Bot
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 DTZ NOVA XMD. Developed by Dulina & DTZ Team.</p>
+            <p style="color: var(--muted-text); font-size: 0.9rem; margin-top: 10px;">
+                <a href="https://dtz-nova-xmd-mini-pair.vercel.app/" target="_blank" style="color: var(--accent-orange); text-decoration: none;">
+                    <i class="fas fa-external-link-alt"></i> Try our Mini Bot
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize background music
+        const bgMusic = document.getElementById('bg-music');
         
-        <a href="https://www.youtube.com/channel/UCQHv5_eoQWCEgaK91e0l3Jw" target="_blank" class="youtube-link">
-          <i class="fa-brands fa-youtube"></i>
-          <div style="flex: 1;">
-            <div style="font-weight: 600; color: var(--accent);">YOUTUBE CHANNEL</div>
-            <div style="color: var(--sub); font-size: 0.9rem;">Technical Documentation</div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>© CYBER SYSTEMS ONLINE // DARK TECH ZONE NETWORK</footer>
-</main>
-
-<script>
-// Theme management system
-const themeManager = {
-  themes: [
-    { 
-      name: 'default', 
-      className: '',
-      icon: '🕶️',
-      displayName: 'Blue Cyber'
-    },
-    { 
-      name: 'christmas', 
-      className: 'theme-christmas',
-      icon: '🎄',
-      displayName: 'Blue Christmas',
-      startDate: { month: 11, day: 15 }, // Dec 15
-      endDate: { month: 0, day: 5 } // Jan 5
-    },
-    { 
-      name: 'newyear', 
-      className: 'theme-newyear',
-      icon: '🎆',
-      displayName: 'Blue New Year',
-      startDate: { month: 11, day: 28 }, // Dec 28
-      endDate: { month: 0, day: 7 } // Jan 7
-    },
-    { 
-      name: 'valentine', 
-      className: 'theme-valentine',
-      icon: '💝',
-      displayName: 'Blue Valentine\'s',
-      startDate: { month: 1, day: 10 }, // Feb 10
-      endDate: { month: 1, day: 18 } // Feb 18
-    },
-    { 
-      name: 'halloween', 
-      className: 'theme-halloween',
-      icon: '🎃',
-      displayName: 'Blue Halloween',
-      startDate: { month: 9, day: 25 }, // Oct 25
-      endDate: { month: 10, day: 2 } // Nov 2
-    },
-    { 
-      name: 'spring', 
-      className: 'theme-spring',
-      icon: '🌸',
-      displayName: 'Blue Spring',
-      startDate: { month: 2, day: 20 }, // Mar 20
-      endDate: { month: 5, day: 20 } // Jun 20
-    },
-    { 
-      name: 'summer', 
-      className: 'theme-summer',
-      icon: '☀️',
-      displayName: 'Blue Summer',
-      startDate: { month: 5, day: 21 }, // Jun 21
-      endDate: { month: 8, day: 22 } // Sep 22
-    },
-    { 
-      name: 'easter', 
-      className: 'theme-easter',
-      icon: '🐰',
-      displayName: 'Blue Easter',
-      startDate: function() {
-        // Easter calculation (simplified)
-        const year = new Date().getFullYear();
-        const f = Math.floor;
-        const G = year % 19;
-        const C = f(year / 100);
-        const H = (C - f(C / 4) - f((8 * C + 13) / 25) + 19 * G + 15) % 30;
-        const I = H - f(H / 28) * (1 - f(29 / (H + 1)) * f((21 - G) / 11));
-        const J = (year + f(year / 4) + I + 2 - C + f(C / 4)) % 7;
-        const L = I - J;
-        const month = 2 + f((L + 40) / 44);
-        const day = L + 28 - 31 * f(month / 4);
-        return { month: month - 1, day: day - 7 }; // Start week before Easter
-      },
-      endDate: function() {
-        const easter = this.startDate();
-        return { month: easter.month, day: easter.day + 7 }; // End week after Easter
-      }
-    },
-    { 
-      name: 'diwali', 
-      className: 'theme-diwali',
-      icon: '🪔',
-      displayName: 'Blue Diwali',
-      startDate: function() {
-        // Diwali usually in Oct/Nov
-        const year = new Date().getFullYear();
-        // Simplified: Assume Oct 20-Nov 15
-        return { month: 9, day: 20 }; // Oct 20
-      },
-      endDate: function() {
-        return { month: 10, day: 15 }; // Nov 15
-      }
-    }
-  ],
-
-  getCurrentTheme() {
-    const now = new Date();
-    const currentMonth = now.getMonth();
-    const currentDay = now.getDate();
-    const currentYear = now.getFullYear();
-
-    for (const theme of this.themes) {
-      if (theme.startDate && theme.endDate) {
-        let startDate, endDate;
+        // Attempt to play music on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            bgMusic.volume = 0.3;
+            bgMusic.play().catch(function(error) {
+                console.log("Autoplay prevented. Music will play after user interaction.");
+            });
+        });
         
-        // Handle dynamic dates (functions)
-        if (typeof theme.startDate === 'function') {
-          startDate = theme.startDate();
-        } else {
-          startDate = theme.startDate;
+        // Play music when user interacts with the page
+        document.addEventListener('click', function() {
+            if (bgMusic.paused) {
+                bgMusic.play().catch(e => console.log("Playback error:", e));
+            }
+        }, { once: true });
+
+        // Copy code function
+        function copyCode() {
+            const code = document.getElementById('deployCode').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                btn.innerText = 'Copied!';
+                btn.style.background = '#28a745';
+                setTimeout(() => { 
+                    btn.innerText = 'Copy Code'; 
+                    btn.style.background = 'rgba(255,255,255,0.1)';
+                }, 2000);
+            });
         }
-        
-        if (typeof theme.endDate === 'function') {
-          endDate = theme.endDate();
-        } else {
-          endDate = theme.endDate;
+
+        // Confetti animation
+        const canvas = document.getElementById('confetti-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() { this.reset(); }
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 3 + 1;
+                this.speedY = Math.random() * 0.5 + 0.2;
+                this.speedX = Math.random() * 0.2 - 0.1;
+                const colors = ['#e026ff', '#2694ff', '#ff7e26', '#ffffff'];
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+            }
+            update() { this.y += this.speedY; this.x += this.speedX; if (this.y > canvas.height) this.reset(); }
+            draw() { ctx.fillStyle = this.color; ctx.fillRect(this.x, this.y, this.size, this.size); }
         }
-
-        // Check if current date is within theme period
-        const start = new Date(currentYear, startDate.month, startDate.day);
-        const end = new Date(currentYear, endDate.month, endDate.day);
-        
-        // Handle year wrap-around (e.g., Christmas to New Year)
-        if (end < start) {
-          end.setFullYear(currentYear + 1);
+        for (let i = 0; i < 50; i++) particles.push(new Particle());
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => { p.update(); p.draw(); });
+            requestAnimationFrame(animate);
         }
-
-        if (now >= start && now <= end) {
-          return theme;
-        }
-      }
-    }
-
-    // Return default blue theme if no seasonal theme applies
-    return this.themes[0];
-  },
-
-  applyTheme(theme) {
-    // Remove all theme classes
-    document.body.classList.remove(
-      'theme-christmas',
-      'theme-newyear',
-      'theme-valentine',
-      'theme-halloween',
-      'theme-spring',
-      'theme-summer',
-      'theme-easter',
-      'theme-diwali',
-      'light'
-    );
-
-    // Add selected theme class
-    if (theme.className) {
-      document.body.classList.add(theme.className);
-    }
-
-    // Update theme indicator
-    document.getElementById('themeIcon').textContent = theme.icon;
-    document.getElementById('themeText').textContent = theme.displayName;
-    
-    // Update CSS variables for RGB values
-    const accentColor = getComputedStyle(document.body).getPropertyValue('--accent');
-    const rgb = this.hexToRgb(accentColor);
-    document.documentElement.style.setProperty('--accent-rgb', `${rgb.r}, ${rgb.g}, ${rgb.b}`);
-
-    // Add seasonal decorations
-    this.addSeasonalDecorations(theme.name);
-    
-    // Update particles color
-    this.updateParticlesColor();
-  },
-
-  hexToRgb(hex) {
-    // Remove # if present
-    hex = hex.replace('#', '');
-    
-    // Parse hex
-    const r = parseInt(hex.substring(0, 2), 16);
-    const g = parseInt(hex.substring(2, 4), 16);
-    const b = parseInt(hex.substring(4, 6), 16);
-    
-    return { r, g, b };
-  },
-
-  updateParticlesColor() {
-    const particles = document.querySelectorAll('.particle');
-    const accentColor = getComputedStyle(document.body).getPropertyValue('--accent');
-    
-    particles.forEach(particle => {
-      particle.style.background = accentColor;
-      particle.style.boxShadow = `0 0 12px ${accentColor}`;
-    });
-  },
-
-  addSeasonalDecorations(themeName) {
-    const container = document.getElementById('seasonalDecorations');
-    container.innerHTML = '';
-
-    const decorations = {
-      'christmas': ['🎄', '🎅', '🤶', '🎁', '⭐', '❄️', '🔔'],
-      'newyear': ['🎆', '🎇', '✨', '🥂', '🎉', '🎊', '🕛'],
-      'valentine': ['💝', '💘', '💖', '💗', '💓', '💞', '❤️'],
-      'halloween': ['🎃', '👻', '💀', '🕸️', '🕷️', '🦇', '⚰️'],
-      'spring': ['🌸', '🌼', '🌺', '🌷', '🐝', '🦋', '🐦'],
-      'summer': ['☀️', '🌊', '🏖️', '🍦', '🍉', '🕶️', '👙'],
-      'easter': ['🐰', '🐣', '🐤', '🥚', '🌷', '🌸', '💐'],
-      'diwali': ['🪔', '✨', '🎇', '🕉️', '🙏', '🪷', '🌟']
-    };
-
-    const themeDecorations = decorations[themeName] || [];
-    
-    // Add 10-20 decorations randomly placed
-    for (let i = 0; i < 15; i++) {
-      const deco = document.createElement('div');
-      deco.className = 'seasonal-decoration';
-      
-      // Random decoration from theme
-      const emoji = themeDecorations[Math.floor(Math.random() * themeDecorations.length)] || '✨';
-      
-      if (themeName === 'christmas') {
-        deco.classList.add('christmas-decoration');
-        deco.style.color = '#00ccff'; // Blue instead of red
-      } else if (themeName === 'newyear') {
-        deco.classList.add('newyear-decoration');
-      }
-      
-      deco.textContent = emoji;
-      deco.style.left = `${Math.random() * 100}%`;
-      deco.style.top = `${Math.random() * 100}%`;
-      deco.style.animationDuration = `${Math.random() * 15 + 10}s`;
-      deco.style.animationDelay = `${Math.random() * 5}s`;
-      deco.style.fontSize = `${Math.random() * 20 + 15}px`;
-      deco.style.opacity = Math.random() * 0.4 + 0.3;
-      
-      container.appendChild(deco);
-    }
-  }
-};
-
-// Initialize theme on page load
-document.addEventListener('DOMContentLoaded', () => {
-  // Apply automatic theme based on date
-  const currentTheme = themeManager.getCurrentTheme();
-  themeManager.applyTheme(currentTheme);
-  
-  // Check for saved manual override
-  if (localStorage.theme === "light") {
-    document.body.classList.add("light");
-  } else if (localStorage.manualTheme) {
-    const manualTheme = themeManager.themes.find(t => t.name === localStorage.manualTheme);
-    if (manualTheme) {
-      themeManager.applyTheme(manualTheme);
-    }
-  }
-});
-
-// Create grid lines
-const gridLines = document.getElementById('gridLines');
-for(let i = 0; i < 20; i++) {
-  const line = document.createElement('div');
-  line.classList.add('grid-line', 'horizontal');
-  line.style.top = `${i * 50}px`;
-  line.style.animationDelay = `${i * 0.5}s`;
-  gridLines.appendChild(line);
-}
-
-for(let i = 0; i < 20; i++) {
-  const line = document.createElement('div');
-  line.classList.add('grid-line', 'vertical');
-  line.style.left = `${i * 50}px`;
-  line.style.animationDelay = `${i * 0.5}s`;
-  gridLines.appendChild(line);
-}
-
-// Create data stream columns
-const dataStream = document.getElementById('dataStream');
-for(let i = 0; i < 10; i++) {
-  const stream = document.createElement('div');
-  stream.classList.add('stream-column');
-  stream.style.left = `${Math.random() * 100}%`;
-  stream.style.animationDuration = `${Math.random() * 3 + 2}s`;
-  stream.style.animationDelay = `${Math.random() * 5}s`;
-  dataStream.appendChild(stream);
-}
-
-// Create code rain effect
-const codeRain = document.getElementById('codeRain');
-for(let i = 0; i < 30; i++) {
-  const rain = document.createElement('div');
-  rain.classList.add('rain-column');
-  rain.style.left = `${Math.random() * 100}%`;
-  rain.style.animationDuration = `${Math.random() * 2 + 1}s`;
-  rain.style.animationDelay = `${Math.random() * 5}s`;
-  rain.style.height = `${Math.random() * 100 + 50}px`;
-  codeRain.appendChild(rain);
-}
-
-/* Blue particles */
-const particlesContainer = document.querySelector('.particles');
-for(let i = 0; i < 60; i++){
-  const p = document.createElement('div');
-  p.classList.add('particle');
-  const size = Math.random() * 5 + 3;
-  p.style.width = p.style.height = size + 'px';
-  p.style.left = Math.random() * 100 + '%';
-  p.style.animationDuration = Math.random() * 15 + 10 + 's';
-  p.style.animationDelay = Math.random() * 10 + 's';
-  p.style.opacity = Math.random() * 0.5 + 0.3;
-  const drift = (Math.random() - 0.5) * 200;
-  p.style.setProperty('--drift', drift + 'px');
-  particlesContainer.appendChild(p);
-}
-
-/* Sidebar */
-const sb = document.getElementById("sidebar");
-document.getElementById("menuBtn").onclick = () => sb.classList.toggle("active");
-function closeSide() { sb.classList.remove("active"); }
-
-/* Theme toggle */
-const themeToggle = document.getElementById("themeToggle");
-
-themeToggle.onclick = () => {
-  document.body.classList.toggle("light");
-  const isLight = document.body.classList.contains("light");
-  localStorage.theme = isLight ? "light" : "dark";
-  
-  // Clear manual theme if switching to light/dark
-  if (isLight) {
-    localStorage.removeItem('manualTheme');
-  } else {
-    // Re-apply seasonal theme
-    const currentTheme = themeManager.getCurrentTheme();
-    themeManager.applyTheme(currentTheme);
-    localStorage.manualTheme = currentTheme.name;
-  }
-};
-
-// Theme cycle button (optional manual theme changer)
-document.addEventListener('keydown', (e) => {
-  if (e.ctrlKey && e.key === 't') {
-    e.preventDefault();
-    const currentIndex = themeManager.themes.findIndex(t => 
-      document.body.classList.contains(t.className)
-    );
-    const nextIndex = (currentIndex + 1) % themeManager.themes.length;
-    themeManager.applyTheme(themeManager.themes[nextIndex]);
-    localStorage.manualTheme = themeManager.themes[nextIndex].name;
-    localStorage.removeItem('theme'); // Clear light/dark mode
-  }
-});
-
-// Smooth scrolling
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const targetId = this.getAttribute('href');
-    if(targetId === '#') return;
-    
-    const targetElement = document.querySelector(targetId);
-    if(targetElement) {
-      window.scrollTo({
-        top: targetElement.offsetTop - 80,
-        behavior: 'smooth'
-      });
-    }
-  });
-});
-
-// Typing effect for hero text
-window.addEventListener('DOMContentLoaded', () => {
-  const heroTitle = document.querySelector('.hero h1');
-  const heroText = document.querySelector('.hero p');
-  
-  // Save original text
-  const titleText = heroTitle.textContent;
-  const subText = heroText.textContent;
-  
-  // Clear text
-  heroTitle.textContent = '';
-  heroText.textContent = '';
-  
-  // Type title
-  let i = 0;
-  const typeTitle = setInterval(() => {
-    if (i < titleText.length) {
-      heroTitle.textContent += titleText.charAt(i);
-      i++;
-    } else {
-      clearInterval(typeTitle);
-      // Type subtitle after title is done
-      let j = 0;
-      const typeSub = setInterval(() => {
-        if (j < subText.length) {
-          heroText.textContent += subText.charAt(j);
-          j++;
-        } else {
-          clearInterval(typeSub);
-        }
-      }, 50);
-    }
-  }, 100);
-});
-</script>
-
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"a135a7a8f1cc4c52900334e8d9650134","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+        animate();
+    </script>
 </body>
 </html>
